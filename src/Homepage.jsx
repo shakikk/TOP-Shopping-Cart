@@ -5,12 +5,12 @@ import { Link } from 'react-router';
 
 function Homepage() {
   return (
-    <div className="homepage-container">
+    <div className="homepage-container" style={{backgroundImage: `url(${Cafe})`}}>
       <Navbar/>
       <div className="homepage-content">
-        <img src={Cafe} id="cafe-image"/>
-        <p> Discover the World’s Finest Coffee Beans — Crafted for the Bold, the Curious, and the True Coffee Lovers. </p>
-        <p> From rare single-origin treasures to rich everyday blends — taste coffee like never before. </p>
+        <p> Discover the World’s Most Unique Coffee Beans </p>
+        <p> Crafted for the Bold, the Curious, and the True Coffee Lovers. </p>
+        <p> Taste coffee like never before. </p>
         <Link to="/Products" id="shop-now-btn"> Explore the Beans </Link>
       </div>
     </div>

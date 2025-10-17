@@ -1,10 +1,21 @@
-import { useState } from 'react';
 import '../App.css';
-import { Link } from 'react-router';
-import cartImg from "../assets/shopping-outline.svg";
+import { useSearchParams } from "react-router";
+import { Link } from "react-router";
+import cartWhite from "../assets/cart-white.svg";
 import magnify from "../assets/magnify.svg";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 function Navbar() {
+  const [ searchParams, setSearchParams ] = useSearchParams("");
+  const { basketItemCount } = useContext(CartContext);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const query = e.target.value;
+    setSearchParams({ q: query });
+  }
+
   return (
     <div className="navbar">
       <div className="navbar-left">
@@ -14,9 +25,17 @@ function Navbar() {
       </div>
       <div className="navbar-right">
         <label> <img src={magnify} height="16px"/>
-          <input name="name" id="name" placeholder="search"/>
+          <input 
+            name="name" 
+            id="search" 
+            placeholder="search"
+            onChange={(e) => handleSearch(e)}
+          />
         </label>
-        <Link to="/Cart"><img src={cartImg} height="24px"/></Link>
+        <div>
+          <Link to="/Cart"><img src={cartWhite} height="24px"/></Link>
+          {basketItemCount ? <p className="basket-count">{basketItemCount}</p> : ""}
+        </div>
       </div>
     </div>
   )
