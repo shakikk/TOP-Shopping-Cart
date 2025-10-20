@@ -38,24 +38,21 @@ function Products(){
   const handleFilter = (e) => {
     switch(e.target.value){
       case("PriceDescending"):
-        filteredProducts = filteredProducts.sort((a, b) => b.price - a.price)
+        filteredProducts = filteredProducts.sort((a, b) => b.price - a.price);
+        return;
+      
+      case("PriceAscending"):
+        filteredProducts = filteredProducts.sort((a, b) => a.price - b.price);
+        return;
     }
   }
   
   return(
     <> 
       <Navbar />
-      <div className="products-container">
+      <div className="products-container">  
         <div style={{display: "flex", justifyContent: "space-between"}}>
           <p><strong> Products ({filteredProducts.length}) </strong></p>
-          <select onChange={(e) => handleFilter(e)}>
-            <optgroup>
-              <option value={"PriceDescending"}>Price (High to Low)</option>
-              <option>Price (Low to High)</option>
-              <option>Alphabetical (A-Z)</option>
-              <option>Alphabetical (Z-A)</option>
-            </optgroup>
-          </select>
         </div>
         <div className="products">
           { filteredProducts.map(product => {

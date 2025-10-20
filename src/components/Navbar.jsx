@@ -24,14 +24,6 @@ function Navbar() {
         <Link to="/Products">Products</Link>
       </div>
       <div className="navbar-right">
-        <label> <img src={magnify} height="16px"/>
-          <input 
-            name="name" 
-            id="search" 
-            placeholder="search"
-            onChange={(e) => handleSearch(e)}
-          />
-        </label>
         <div>
           <Link to="/Cart"><img src={cartWhite} height="24px"/></Link>
           {basketItemCount ? <p className="basket-count">{basketItemCount}</p> : ""}
