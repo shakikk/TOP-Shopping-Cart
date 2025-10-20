@@ -213,6 +213,10 @@ input:focus{
 }
 
 @media (max-width: 500px){
+  h1{
+    font-size: 24px;
+  }
+
   .navbar{
     padding: 20px 12px;
   }
